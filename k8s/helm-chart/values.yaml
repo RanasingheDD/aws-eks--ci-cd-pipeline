@@ -1,0 +1,7 @@
+backend:
+  image: "ranasinghedd/backend:latest"
+  port: 5000
+frontend:
+  image: "ranasinghedd/frontend:latest"
+  port: 80
+replicaCount: 2

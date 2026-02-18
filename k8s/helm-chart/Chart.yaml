@@ -1,0 +1,5 @@
+apiVersion: v2
+name: cicd-eks-app
+description: CI/CD EKS Demo App
+version: 0.1.0
+appVersion: "1.0"
