@@ -52,7 +52,7 @@ jobs:
           aws-region: eu-north-1
 
       - name: Update kubeconfig
-        run: aws eks update-kubeconfig --name ci-cd-eks
+        run: aws eks update-kubeconfig --name ci-cd-eks-dishan
 
       - name: Deploy to EKS using Helm
         run: |
