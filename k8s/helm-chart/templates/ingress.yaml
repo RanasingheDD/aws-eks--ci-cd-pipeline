@@ -3,21 +3,21 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: app-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-    nginx.ingress.kubernetes.io/use-regex: "true"
+  namespace: default
 spec:
   ingressClassName: {{ .Values.ingress.className }}
   rules:
     - http:
         paths:
-          - path: /api/data(/|$)(.*)
-            pathType: ImplementationSpecific
+          # Put the MOST SPECIFIC paths FIRST
+          - path: /api/data
+            pathType: Prefix
             backend:
               service:
                 name: backend
                 port:
                   number: {{ .Values.backend.port }}
+          # Put the LEAST SPECIFIC paths LAST
           - path: /
             pathType: Prefix
             backend:
