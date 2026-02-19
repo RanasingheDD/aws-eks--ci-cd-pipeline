@@ -1,8 +1,8 @@
 backend:
-  image: "ranasinghedd/backend:latest"
+  image: "ranasinghedd/backend:latest-v2"
   port: 5000
 frontend:
-  image: "ranasinghedd/frontend:latest"
+  image: "ranasinghedd/frontend:latest-v2"
   port: 80
 ingress:
   enabled: true
