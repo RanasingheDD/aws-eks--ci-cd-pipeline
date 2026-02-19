@@ -19,13 +19,13 @@ spec:
             - containerPort: {{ .Values.backend.port }}
           livenessProbe:
             httpGet:
-              path: /api
+              path: /data
               port: {{ .Values.backend.port }}
             initialDelaySeconds: 5
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /api
+              path: /data
               port: {{ .Values.backend.port }}
             initialDelaySeconds: 5
             periodSeconds: 10

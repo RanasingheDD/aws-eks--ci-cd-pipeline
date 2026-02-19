@@ -11,8 +11,8 @@ spec:
   rules:
     - http:
         paths:
-          - path: /api(/|$)(.*)
-            pathType: Prefix
+          - path: /data(/|$)(.*)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: backend
