@@ -54,6 +54,20 @@ jobs:
       - name: Update kubeconfig
         run: aws eks update-kubeconfig --name ci-cd-eks-dishan
 
+      - name: Install NGINX Ingress Controller
+        run: |
+          helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+          helm repo update
+          helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \
+            --namespace ingress-nginx --create-namespace \
+            --set controller.service.type=LoadBalancer
+
+      - name: Wait for NGINX Ingress Controller
+        run: |
+          kubectl wait --namespace ingress-nginx \
+            --for=condition=available deployment/ingress-nginx-controller \
+            --timeout=300s
+
       - name: Deploy to EKS using Helm
         run: |
           helm upgrade --install cicd-eks-app ./k8s/helm-chart --namespace default
