@@ -10,7 +10,7 @@ spec:
     - http:
         paths:
           # Put the MOST SPECIFIC paths FIRST
-          - path: /api/data
+          - path: /health
             pathType: Prefix
             backend:
               service:

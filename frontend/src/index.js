@@ -6,7 +6,7 @@ function App() {
   const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
-    axios.get("/api/data")
+    axios.get("/health")
       .then(res => setMessage(res.data.message))
       .catch(err => setMessage("Error fetching backend"));
   }, []);
