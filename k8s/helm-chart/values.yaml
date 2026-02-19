@@ -4,4 +4,7 @@ backend:
 frontend:
   image: "ranasinghedd/frontend:latest"
   port: 80
+ingress:
+  enabled: true
+  className: nginx
 replicaCount: 2
