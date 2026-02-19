@@ -11,7 +11,11 @@ spec:
   rules:
     - http:
         paths:
+<<<<<<< HEAD
           - path: /data(/|$)(.*)
+=======
+          - path: /api(/|$)(.*)
+>>>>>>> c9c69b59047a0d336050a9f0528999325a01fb50
             pathType: ImplementationSpecific
             backend:
               service:
